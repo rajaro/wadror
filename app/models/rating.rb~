@@ -1,11 +1,11 @@
-class Rating < ActiveRecord::Base
- belongs_to :beer
- def to_s
 
-  bid = self.beer_id
-  b = Beer.where id:bid
-  bname = b.name
-  
-  "#{beer.name} #{bid}"
+class Rating < ActiveRecord::Base
+  belongs_to :beer
+  belongs_to :user   # rating kuuluu myös käyttäjään
+
+  def to_s
+    "#{beer.name} #{score}"
+  end
  end
-end
+   
+

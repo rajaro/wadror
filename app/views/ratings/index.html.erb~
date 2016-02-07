@@ -1,14 +1,11 @@
 <h2>List of ratings</h2>
 
 <p>Number of ratings: <%= @ratings.count %> </p>
-<ul>
- <%= @ratings.each do |rating| %>
-   <li> <%= rating %> </li>
- <% end %>
-</ul>
+
 <ul>
   <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to 'delete', rating_path(rating.id), method: :delete %> </li>
+    <%= us = rating.user %>
+    <li> <%= rating %> <%= link_to rating.user.username, user_path(rating.user) %> </li>
   <% end %>
 </ul>
 <p>
