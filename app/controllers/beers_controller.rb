@@ -1,4 +1,5 @@
 class BeersController < ApplicationController
+  before_action :ensure_that_signed_in, except: [:index, :show]
   before_action :set_beer, only: [:show, :edit, :update, :destroy]
 
   # GET /beers
@@ -16,12 +17,14 @@ class BeersController < ApplicationController
   def new
     @beer = Beer.new
     @breweries = Brewery.all
+    @new_styles = Style.all
     @style = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
   end
 
   # GET /beers/1/edit
   def edit
     @breweries = Brewery.all
+    @new_styles = Style.all
     @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
   
   end
@@ -37,6 +40,7 @@ class BeersController < ApplicationController
         format.json { render :show, status: :created, location: @beer }
       else
         @breweries = Brewery.all
+        @new_styles = Style.all
         @styles = ["Weizen", "Lager", "Pale ale", "IPA", "Porter"]
         format.html { render :new }
         format.json { render json: @beer.errors, status: :unprocessable_entity }
@@ -76,6 +80,6 @@ class BeersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def beer_params
-      params.require(:beer).permit(:name, :style, :brewery_id)
+      params.require(:beer).permit(:name, :brewery_id, :style_id)
     end
 end

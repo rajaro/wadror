@@ -7,7 +7,7 @@
 
 <p>
   <strong>Style:</strong>
-  <%= @beer.style %>
+  <%= Style.find_by_id(@beer.style_id) %>
 </p>
 
 <p>

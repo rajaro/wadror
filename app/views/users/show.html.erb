@@ -2,12 +2,11 @@
 
   <strong>Username:</strong>
   <%= @user.username %>
- <p> <strong>Ratings:</strong></p>
- <p><%= @user.ratings.count %> ratings</p>
+ <p> <strong>Ratings:</strong>
+ <%= @user.ratings.count %> </p>
 <p>
   <%= @user.ratings.each do |rating| %>
-  <%= rating.beer.name %>
-  <%= rating.score %>
+  <%= rating %>
 <% if @user == current_user %>
             <%= link_to 'delete', rating, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>

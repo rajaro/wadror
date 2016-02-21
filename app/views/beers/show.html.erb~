@@ -20,7 +20,6 @@
   beer has not yet been rated!
   <% else %>
   beer has 
-  <%= @beer.average_rating %> 
   <%= pluralize(@beer.average_rating, 'rating') %>
 <% end %>
 

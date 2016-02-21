@@ -4,8 +4,7 @@
 
 <ul>
   <% @ratings.each do |rating| %>
-    <%= us = rating.user %>
-    <li> <%= rating %> <%= link_to rating.user.username, user_path(rating.user) %> </li>
+    <li> <%= rating %> <%= link_to rating.user, user_path(rating.user) %> </li>
   <% end %>
 </ul>
 <p>
