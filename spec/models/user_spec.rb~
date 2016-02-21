@@ -1,0 +1,13 @@
+
+
+require 'rails_helper'
+
+RSpec.describe User, type: :model do
+  it "User will not be save with a too short password" do
+
+    User.create username:"Pekka", password:"aaa"
+    expect(User.count).to eq(0)
+
+  end
+end
+
