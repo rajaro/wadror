@@ -1,0 +1,10 @@
+class ChangeBeerStyle < ActiveRecord::Migration
+  def change
+    change_table :beers do |b|
+       b.string :new_style
+       b.add_index :new_style
+       b.rename :style, :old_style
+       
+       end
+  end
+end
