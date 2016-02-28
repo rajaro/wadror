@@ -1,4 +1,6 @@
-class Style < ActiveRecord::Base
- has_many :beers
 
+class Style < ActiveRecord::Base
+    include RatingAverage
+  @ratings = Rating.all
+  has_many :beers
 end

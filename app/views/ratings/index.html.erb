@@ -1,12 +1,23 @@
 <h2>List of ratings</h2>
 
-<p>Number of ratings: <%= @ratings.count %> </p>
+<p>
+  Number of ratings <%= @ratings.count %>
+</p>
 
 <ul>
   <% @ratings.each do |rating| %>
-    <li> <%= rating %> <%= link_to rating.user.username, user_path(rating.user) %> </li>
+    <li> <%= rating %> <%= link_to rating.user.username, rating.user %></li>
   <% end %>
 </ul>
-<p>
- <%= link_to 'new rating', new_rating_path %>
-</p>
+<p> Newest ratings </p>
+<%= Rating.recent %>
+
+<p> Best breweries </p>
+ <%= Brewery.all.sort_by{ |b| -(b.average_rating||0) }.take(3) %>
+
+
+<p> Best beers </p>
+ <%= Beer.all.sort_by{ |b| -(b.average_rating||0) }.take(3) %>
+
+<p> Best styles </p>
+

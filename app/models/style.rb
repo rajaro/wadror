@@ -1,8 +1,5 @@
+
 class Style < ActiveRecord::Base
- has_many :beers
-
-
- def to_s
-   self.name
-  end
+    include RatingAverage
+  has_many :beers
 end

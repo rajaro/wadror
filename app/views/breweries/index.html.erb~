@@ -2,7 +2,7 @@
 
 <h1>Listing Breweries</h1>
 <p> Number of breweries: <%= @breweries.count %> </p>
-<table>
+<table class="table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Brewery', new_brewery_path %>
+<%= link_to 'New Brewery', new_brewery_path, class:'btn btn-primary' %>

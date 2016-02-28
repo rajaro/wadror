@@ -5,6 +5,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap-sass'
+group :development do
+  gem 'rails_layout'
+end
 group :development, :test do
   gem 'sqlite3'
 end
