@@ -6,6 +6,7 @@ gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass'
+gem 'jquery-turbolinks'
 group :development do
   gem 'rails_layout'
 end
@@ -64,8 +65,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
 group :test do
+  gem 'webmock', '~> 1.24'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
 end

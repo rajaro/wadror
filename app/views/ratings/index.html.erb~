@@ -10,14 +10,25 @@
   <% end %>
 </ul>
 <p> Newest ratings </p>
-<%= Rating.recent %>
+<ul>
+  <% @recent.each do |rating| %>
+    <li> <%= rating %> <%= link_to rating.user.username, rating.user %></li>
+  <% end %>
+</ul>
 
-<p> Best breweries </p>
- <%= Brewery.all.sort_by{ |b| -(b.average_rating||0) }.take(3) %>
+<div class="row">
+  <div class="col-md-3">
+    <h4>Best beers</h4>
+    <%= render 'list', items: Beer.all %>
+  </div>
+  <div class="col-md-3">
+    <h4>Best breweries</h4>
+    <%= render 'list', items: Brewery.all %>
+  </div>
+  <div class="col-md-3">
+    <h4>Best styles</h4>
+    <%= render 'list', items: Style.all %>
+  </div>
+</div>
 
 
-<p> Best beers </p>
- <%= Beer.all.sort_by{ |b| -(b.average_rating||0) }.take(3) %>
-
-<p> Best styles </p>
- <%= Style.all.sort_by{ |b| -(b.average_rating||0) }.take(3) %>

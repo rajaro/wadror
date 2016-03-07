@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% cache @beer do %>
 <p>
   <strong>Name:</strong>
   <%= @beer.name %>
@@ -22,7 +22,7 @@
   beer has 
   <%= pluralize(@beer.average_rating, 'rating') %>
 <% end %>
-
+<% end %>
 <p>
   <%= link_to 'list of breweries', breweries_path %>
 </p>

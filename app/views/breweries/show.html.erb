@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% cache @brewery do %>
 <p>
   <strong>Name:</strong>
   <%= @brewery.name %>
@@ -20,7 +20,7 @@
    <%= link_to beer.name, beer %>
  <% end %>
 </p>
-
+<% end %>
 <p>
   <%= link_to 'list of beers', beers_path  %>
 </p>

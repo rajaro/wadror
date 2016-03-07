@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<% cache @brewery do %>
 <p>
   <strong>Name:</strong>
   <%= @brewery.name %>
@@ -19,6 +19,10 @@
  <% @brewery.beers.each do |beer| %>
    <%= link_to beer.name, beer %>
  <% end %>
+</p>
+
+<p>
+  <%= link_to 'list of beers', beers_path  %>
 </p>
 
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |

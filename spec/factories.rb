@@ -17,6 +17,10 @@ end
     style
   end
 
+  factory :style do
+   name 
+end
+
 
 
   factory :brewery do

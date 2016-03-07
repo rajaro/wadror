@@ -21,7 +21,10 @@ class User < ActiveRecord::Base
     return nil if ratings.empty?
     ratings.order(score: :desc).limit(1).first.beer
   end
-
+  def self.top(n)
+    sorted = User.all.sort_by{ |b| -b.ratings.count }
+    sorted[0, n]
+  end
   def favorite_style
     return nil if ratings.empty?
 
